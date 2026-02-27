@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  :root {
+    --background: 220 15% 13%;
+    --foreground: 210 20% 92%;
+
+    --card: 220 14% 17%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 220 14% 17%;
+    --popover-foreground: 210 20% 92%;
+
+    --primary: 168 60% 48%;
+    --primary-foreground: 220 15% 8%;
+
+    --secondary: 220 12% 22%;
+    --secondary-foreground: 210 20% 85%;
+
+    --muted: 220 12% 20%;
+    --muted-foreground: 215 12% 55%;
+
+    --accent: 28 90% 58%;
+    --accent-foreground: 220 15% 8%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 12% 24%;
+    --input: 220 12% 24%;
+    --ring: 168 60% 48%;
+
+    --radius: 0.75rem;
+
+    --buddy: 168 60% 48%;
+    --buddy-glow: 168 60% 48% / 0.25;
+    --buddy-warm: 28 90% 58%;
+    --correct: 145 60% 45%;
+    --incorrect: 0 72% 55%;
+    --meet-bar: 220 14% 11%;
+    --meet-surface: 220 14% 15%;
+    --slide-bg: 220 15% 96%;
+    --slide-fg: 220 20% 12%;
+
+    --sidebar-background: 220 14% 11%;
+    --sidebar-foreground: 210 20% 85%;
+    --sidebar-primary: 168 60% 48%;
+    --sidebar-primary-foreground: 220 15% 8%;
+    --sidebar-accent: 220 12% 22%;
+    --sidebar-accent-foreground: 210 20% 85%;
+    --sidebar-border: 220 12% 24%;
+    --sidebar-ring: 168 60% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'DM Sans', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  .buddy-glow {
+    box-shadow: 0 0 20px hsl(var(--buddy-glow)), 0 0 60px hsl(var(--buddy-glow));
+  }
+
+  .meet-gradient {
+    background: linear-gradient(180deg, hsl(var(--meet-bar)) 0%, hsl(var(--background)) 100%);
+  }
+
+  .slide-surface {
+    background: hsl(var(--slide-bg));
+    color: hsl(var(--slide-fg));
+  }
+
+  .slide-surface.theme-dark {
+    --slide-bg: 220 15% 10%;
+    --slide-fg: 210 20% 92%;
+  }
+
+  .slide-surface.theme-gradient {
+    background: linear-gradient(135deg, hsl(220 25% 14%), hsl(260 20% 22%));
+    color: hsl(210 20% 92%);
+  }
+
+  .slide-surface.theme-warm {
+    background: linear-gradient(135deg, hsl(28 40% 96%), hsl(15 50% 92%));
+    color: hsl(15 30% 15%);
+  }
+
+  .slide-surface.theme-ocean {
+    background: linear-gradient(135deg, hsl(200 50% 95%), hsl(210 60% 88%));
+    color: hsl(210 40% 12%);
+  }
+
+  .buddy-bounce {
+    animation: buddy-bounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .buddy-pulse {
+    animation: buddy-pulse 2s ease-in-out infinite;
+  }
+
+  .fade-up {
+    animation: fade-up 0.4s ease-out;
+  }
+
+  /* Slide transitions */
+  .slide-enter {
+    animation: slide-fade-in 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* Emoji reaction float */
+  .emoji-float {
+    animation: emoji-float 2.5s ease-out forwards;
+  }
+}
+
+@keyframes buddy-bounce {
+  0% { transform: scale(0.3) translateY(20px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+@keyframes buddy-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes fade-up {
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-fade-in {
+  0% { opacity: 0; transform: translateY(12px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes emoji-float {
+  0% { opacity: 1; transform: translateY(0) scale(1); }
+  70% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-200px) scale(1.4); }
+}
