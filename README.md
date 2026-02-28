@@ -1,8 +1,8 @@
-##Inspiration
+## Inspiration
 
 Students often look attentive while mentally drifting away. Most ed-tech tools frame engagement as a teacher dashboard problem. We flipped that by giving students a companion that senses disengagement and pulls them back in, without webcams or invasive monitoring. Engagement is inferred only from interaction signals.
 
-##What it does
+## What it does
 
 Catchy is an AI on-screen pet agent that sits on top of live presentations.
 
@@ -12,7 +12,7 @@ Emotional mirror: Catchy’s mood reflects student engagement using tab focus, a
 
 Teachers get live per-student engagement analytics and AI-generated assessments. Everything runs in real time over WebRTC with Supabase Realtime for sync and events.
 
-##How we built it
+## How we built it
 
 React, TypeScript, Vite, Tailwind, shadcn/ui on the frontend.
 Supabase for auth, database, realtime, and storage.
@@ -22,14 +22,14 @@ WebRTC for live audio and video.
 Lightweight engagement tracking batched every 30 seconds.
 A teacher-side coordinator triggers questions based on transcript coverage, while a student-side agent manages the buddy and queue.
 
-##Challenges
+## Challenges
 
 WebRTC glare and signaling races.
 Deciding when content was sufficiently covered.
 Noisy engagement signals causing mood flicker.
 Keeping teachers in control of AI-generated questions.
 
-##What we’re proud of
+## What we’re proud of
 
 Content-aware question timing.
 Privacy-first engagement tracking.
@@ -37,13 +37,13 @@ A mood system that meaningfully affects behavior.
 A fully live end-to-end pipeline.
 Actionable AI feedback for teachers.
 
-##What we learned
+## What we learned
 
 Realtime infrastructure matters more than model size.
 Simple interaction signals are enough to estimate engagement.
 AI works best in classrooms when teachers stay in control.
 
-##What’s next
+## What’s next
 
 Buddy progression and rewards.
 Multi-language support.
